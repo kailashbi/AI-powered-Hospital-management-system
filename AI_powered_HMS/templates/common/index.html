@@ -1,0 +1,34 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<div class="hero">
+    <h1>🏥 AI-Powered Hospital Management</h1>
+    <p>An intelligent disease prediction system using machine learning to assist doctors in diagnosing Heart Disease, Diabetes, and Stroke.</p>
+    <a href="/login" class="btn btn-primary" style="margin-right:10px;">Login →</a>
+    <a href="/register" class="btn btn-outline">Register as Patient</a>
+</div>
+
+<div class="feature-grid">
+    <div class="feature-item">
+        <div class="icon">❤️</div>
+        <h3>Heart Disease</h3>
+        <p>Random Forest model predicting cardiac risk with high accuracy.</p>
+    </div>
+    <div class="feature-item">
+        <div class="icon">🩸</div>
+        <h3>Diabetes</h3>
+        <p>Logistic Regression model for early diabetes detection.</p>
+    </div>
+    <div class="feature-item">
+        <div class="icon">🧠</div>
+        <h3>Stroke</h3>
+        <p>XGBoost model analyzing 10 risk factors for stroke prediction.</p>
+    </div>
+    <div class="feature-item">
+        <div class="icon">🔐</div>
+        <h3>Role-Based Access</h3>
+        <p>Cardiology, Neurology, and General Medicine doctors see only their patients.</p>
+    </div>
+</div>
+
+{% endblock %}

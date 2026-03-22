@@ -1,0 +1,40 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<div class="page-title">💉 Nurse Dashboard</div>
+
+{% if nurse_info %}
+<div class="card" style="margin-bottom:1.5rem;display:flex;align-items:center;gap:1.2rem;">
+    <div style="font-size:3rem;">👩‍⚕️</div>
+    <div>
+        <div style="font-size:1.2rem;font-weight:700;">{{ session.get('name') }}</div>
+        <div style="color:#6b7c93;font-size:0.9rem;">Nurse &bull; {{ nurse_info.dept_name }}</div>
+    </div>
+</div>
+{% endif %}
+
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="num">{{ vitals_count }}</div>
+        <div class="lbl">Vitals Recorded</div>
+    </div>
+    <div class="stat-card" style="border-left-color:#28a745;">
+        <div class="num" style="color:#28a745;">{{ patient_count }}</div>
+        <div class="lbl">Total Patients</div>
+    </div>
+</div>
+
+<div class="dash-grid">
+    <a class="dash-card" href="/nurse/vitals">
+        <div class="icon">📋</div>
+        <div class="title">Record Vitals</div>
+        <div class="desc">Add BP, glucose, cholesterol for a patient</div>
+    </a>
+    <a class="dash-card" href="/nurse/records">
+        <div class="icon">📂</div>
+        <div class="title">Patient Records</div>
+        <div class="desc">View all recorded vitals history</div>
+    </a>
+</div>
+
+{% endblock %}

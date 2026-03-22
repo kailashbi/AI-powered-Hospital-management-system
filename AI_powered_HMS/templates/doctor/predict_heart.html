@@ -1,0 +1,102 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<div class="page-title">❤️ Heart Disease Prediction</div>
+
+{% if result and result.error %}
+<div class="alert alert-danger">Error: {{ result.error }}</div>
+{% endif %}
+
+{% if result and not result.error %}
+<div class="result-box {% if 'High' in result.label %}high-risk{% else %}low-risk{% endif %}" style="margin-bottom:2rem;">
+    <div style="font-size:2rem;">{% if 'High' in result.label %}⚠️{% else %}✅{% endif %}</div>
+    <div class="result-label">{{ result.label }}</div>
+    <div class="result-prob">Confidence: <strong>{{ result.probability }}%</strong></div>
+    <a href="/doctor/predict_heart" class="btn btn-outline">New Prediction</a>
+</div>
+{% endif %}
+
+<div class="predict-form">
+    <h2>Patient Data — Heart Disease</h2>
+    <form method="POST" action="/doctor/predict_heart">
+
+        <div class="form-group">
+            <label>Select Patient</label>
+            <select name="patient_id">
+                <option value="0">-- Select Patient --</option>
+                {% for p in patients %}
+                <option value="{{ p.patient_id }}">{{ p.name }} (ID: {{ p.patient_id }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="age" placeholder="e.g. 52" required>
+            </div>
+            <div class="form-group">
+                <label>Sex (1=Male, 0=Female)</label>
+                <select name="sex">
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Chest Pain Type (0-3)</label>
+                <input type="number" name="cp" min="0" max="3" placeholder="0-3" required>
+            </div>
+            <div class="form-group">
+                <label>Resting Blood Pressure</label>
+                <input type="number" name="trestbps" placeholder="e.g. 130" required>
+            </div>
+            <div class="form-group">
+                <label>Cholesterol (mg/dl)</label>
+                <input type="number" name="chol" placeholder="e.g. 250" required>
+            </div>
+            <div class="form-group">
+                <label>Fasting Blood Sugar &gt;120 (1=Yes)</label>
+                <select name="fbs">
+                    <option value="0">No (0)</option>
+                    <option value="1">Yes (1)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Resting ECG (0-2)</label>
+                <input type="number" name="restecg" min="0" max="2" placeholder="0-2">
+            </div>
+            <div class="form-group">
+                <label>Max Heart Rate (thalach)</label>
+                <input type="number" name="thalach" placeholder="e.g. 150" required>
+            </div>
+            <div class="form-group">
+                <label>Exercise Induced Angina (1=Yes)</label>
+                <select name="exang">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Oldpeak (ST depression)</label>
+                <input type="number" step="0.1" name="oldpeak" placeholder="e.g. 2.3" required>
+            </div>
+            <div class="form-group">
+                <label>Slope (0-2)</label>
+                <input type="number" name="slope" min="0" max="2" placeholder="0-2">
+            </div>
+            <div class="form-group">
+                <label>CA (major vessels 0-4)</label>
+                <input type="number" name="ca" min="0" max="4" placeholder="0-4">
+            </div>
+            <div class="form-group">
+                <label>Thal (1=normal, 2=fixed, 3=reversible)</label>
+                <input type="number" name="thal" min="0" max="3" placeholder="0-3">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top:1rem;">🔍 Predict</button>
+        <a href="/doctor/dashboard" class="btn btn-outline" style="margin-left:10px;">← Back</a>
+    </form>
+</div>
+
+{% endblock %}

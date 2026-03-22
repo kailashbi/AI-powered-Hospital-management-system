@@ -1,0 +1,40 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<div class="page-title">⚙️ Admin Dashboard</div>
+
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="num">{{ users_count }}</div>
+        <div class="lbl">Total Users</div>
+    </div>
+    <div class="stat-card" style="border-left-color:#28a745;">
+        <div class="num" style="color:#28a745;">{{ dept_count }}</div>
+        <div class="lbl">Departments</div>
+    </div>
+    <div class="stat-card" style="border-left-color:#00b4d8;">
+        <div class="num" style="color:#00b4d8;">{{ pred_count }}</div>
+        <div class="lbl">Total Predictions</div>
+    </div>
+</div>
+
+<div class="dash-grid">
+    <a class="dash-card" href="/admin/departments">
+        <div class="icon">🏢</div>
+        <div class="title">Departments</div>
+        <div class="desc">Add or delete hospital departments</div>
+    </a>
+    <a class="dash-card" href="/admin/users">
+        <div class="icon">👥</div>
+        <div class="title">All Users</div>
+        <div class="desc">View all registered system users</div>
+    </a>
+</div>
+
+<div class="alert alert-warning" style="margin-top:1.5rem;">
+    <strong>⚠️ Note:</strong> To link a doctor/nurse to a department, insert directly into the
+    <code>doctors</code> or <code>nurses</code> table in MySQL Workbench using their <code>user_id</code>
+    and the correct <code>dept_id</code>. See <code>SAMPLE_DATA.md</code> for example SQL.
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<div style="text-align:center;padding:4rem 1rem;">
+    <div style="font-size:4rem;margin-bottom:1rem;">🔒</div>
+    <h2 style="color:#dc3545;margin-bottom:0.5rem;">Access Denied</h2>
+    <p style="color:#6b7c93;font-size:1rem;max-width:500px;margin:0 auto 2rem;">
+        {{ message or "You do not have permission to access this page." }}
+    </p>
+    <a href="/doctor/dashboard" class="btn btn-primary">← Go Back</a>
+</div>
+
+{% endblock %}

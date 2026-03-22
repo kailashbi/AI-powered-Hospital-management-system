@@ -1,0 +1,46 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<div class="page-title">🙋 Patient Dashboard</div>
+
+<div class="card" style="margin-bottom:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+    <div style="font-size:3rem;">🧑</div>
+    <div>
+        <div style="font-size:1.2rem;font-weight:700;">{{ session.get('name') }}</div>
+        {% if patient %}
+        <div style="color:#6b7c93;font-size:0.9rem;">
+            Age: {{ patient.age or '—' }} &bull;
+            Gender: {{ patient.gender or '—' }} &bull;
+            📞 {{ patient.phone or '—' }}
+        </div>
+        {% if patient.address %}
+        <div style="color:#6b7c93;font-size:0.85rem;margin-top:2px;">📍 {{ patient.address }}</div>
+        {% endif %}
+        {% else %}
+        <div style="color:#ffc107;font-size:0.88rem;">
+            ⚠️ Profile not set up — contact admin to complete your patient record.
+        </div>
+        {% endif %}
+    </div>
+    {% if pred_count is defined %}
+    <div class="stat-card" style="margin-left:auto;min-width:130px;">
+        <div class="num">{{ pred_count }}</div>
+        <div class="lbl">My Predictions</div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="dash-grid">
+    <a class="dash-card" href="/patient/results">
+        <div class="icon">📊</div>
+        <div class="title">My Prediction Results</div>
+        <div class="desc">View your disease prediction history</div>
+    </a>
+    <div class="dash-card" style="cursor:default;opacity:0.65;">
+        <div class="icon">🏥</div>
+        <div class="title">Visit Information</div>
+        <div class="desc">Contact your doctor for details</div>
+    </div>
+</div>
+
+{% endblock %}

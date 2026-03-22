@@ -1,0 +1,55 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<div class="page-title">📊 My Prediction Results</div>
+
+{% if predictions %}
+<div class="card">
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Disease</th><th>Result</th><th>Probability</th>
+                    <th>Doctor</th><th>Department</th><th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for p in predictions %}
+                <tr>
+                    <td>
+                        {% if p.disease_type == 'heart' %}❤️ Heart Disease
+                        {% elif p.disease_type == 'diabetes' %}🩸 Diabetes
+                        {% else %}🧠 Stroke{% endif %}
+                    </td>
+                    <td>
+                        {% set r = p.prediction_result %}
+                        {% if 'High' in r or 'Detected' in r or 'Risk' in r and 'Low' not in r %}
+                            <span class="badge badge-danger">{{ r }}</span>
+                        {% else %}
+                            <span class="badge badge-success">{{ r }}</span>
+                        {% endif %}
+                    </td>
+                    <td><strong>{{ (p.probability * 100)|round(1) }}%</strong></td>
+                    <td>{{ p.doctor_name or '—' }}</td>
+                    <td>{{ p.dept_name or '—' }}</td>
+                    <td style="font-size:0.82rem;color:#6b7c93;">
+                        {{ p.created_at.strftime('%d %b %Y') if p.created_at else '—' }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="card" style="text-align:center;padding:3rem;">
+    <div style="font-size:3rem;margin-bottom:1rem;">📭</div>
+    <p style="color:#6b7c93;font-size:1rem;">
+        No predictions recorded yet.<br>Your doctor will run a diagnosis during your visit.
+    </p>
+</div>
+{% endif %}
+
+<a href="/patient/dashboard" class="btn btn-outline" style="margin-top:1rem;">← Back to Dashboard</a>
+
+{% endblock %}

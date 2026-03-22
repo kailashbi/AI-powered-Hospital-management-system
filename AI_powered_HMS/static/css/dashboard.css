@@ -1,0 +1,30 @@
+/* Dashboard card grid */
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.3rem;
+  margin-top: 1.5rem;
+}
+
+.dash-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+  border: 1px solid #d1dbe8;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.dash-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+  border-color: #1a6fc4;
+}
+
+.dash-card .icon { font-size: 2.8rem; margin-bottom: 0.7rem; }
+.dash-card .title { font-size: 1rem; font-weight: 700; color: #1a6fc4; }
+.dash-card .desc  { font-size: 0.82rem; color: #6b7c93; margin-top: 4px; }

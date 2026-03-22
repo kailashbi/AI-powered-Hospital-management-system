@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<div class="page-title">📂 Patient Vital Records</div>
+
+<div class="card">
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient</th><th>BP (mmHg)</th><th>Cholesterol</th>
+                    <th>Glucose</th><th>Heart Rate</th><th>BMI</th>
+                    <th>Recorded By</th><th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for r in records %}
+                <tr>
+                    <td><strong>{{ r.patient_name }}</strong></td>
+                    <td>{{ r.blood_pressure or '—' }}</td>
+                    <td>{{ r.cholesterol or '—' }}</td>
+                    <td>{{ r.glucose or '—' }}</td>
+                    <td>{{ r.heart_rate or '—' }}</td>
+                    <td>{{ r.bmi or '—' }}</td>
+                    <td>{{ r.recorded_by_name or '—' }}</td>
+                    <td style="font-size:0.82rem;color:#6b7c93;">
+                        {{ r.recorded_at.strftime('%d %b %Y %H:%M') if r.recorded_at else '—' }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr><td colspan="8" style="text-align:center;color:#6b7c93;padding:2rem;">
+                    No vitals recorded yet.
+                </td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<a href="/nurse/dashboard" class="btn btn-outline" style="margin-top:1rem;">← Back to Dashboard</a>
+
+{% endblock %}
