@@ -1,6 +1,5 @@
-# 🏥 KAIre Health - AI-Powered Hospital Management System & Real-Time Telemetry Platform
+# 🏥 KAIre Health - AI-Powered Hospital Management System
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE)
 [![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-blue.svg)](https://vitejs.dev/)
 [![Flask](https://img.shields.io/badge/Backend-Flask%20REST-green.svg)](https://flask.palletsprojects.com/)
 [![MySQL](https://img.shields.io/badge/Database-MySQL%20%2F%20Supabase-orange.svg)](https://www.mysql.com/)
@@ -42,15 +41,11 @@
 ### 🛡️ 5. Administrator Governance HQ
 - **Hospital Operations Analytics**: Bed occupancy rate, department patient volume, and doctor-to-patient staff ratios.
 - **User Management**: Complete CRUD operations, account activation/deactivation, and role assignment (Doctor, Nurse, Patient, Admin).
-- **HIPAA Audit Log**: Immutable audit trails recording every system event, diagnostic run, login, and prescription dispatch.
 - **Kafka Live Stream Dashboard**: Dedicated real-time topic telemetry monitor (`/admin/kafka-stream`) displaying event payloads, message counts, broker connectivity status, and a manual event publishing test bench.
 
 ### ⚡ 6. Apache Kafka Event Streaming Engine
 - **6 Dedicated Event Topics**: Real-time vitals, emergency triage alerts, ML prediction completions, appointment state changes, care plan notifications, and HIPAA audit trails.
 - **Graceful In-Memory Fallback**: Automatically falls back to an in-memory event bus if Kafka brokers are offline, guaranteeing zero API downtime.
-
-### ⚡ 7. 1-Click Quick Demo Persona Switcher
-- Instantly switch between **Doctor**, **Nurse**, **Patient**, and **Admin** personas directly from the login page or top navigation bar pill.
 
 ---
 
@@ -208,17 +203,6 @@ KAIre Health incorporates 6 dedicated Apache Kafka topics:
 
 ---
 
-## 🔑 Demo Login Credentials
-
-You can log in with any of the following pre-configured persona accounts:
-
-| Role | Email | Password | Primary Capabilities |
-| :--- | :--- | :--- | :--- |
-| 🛡️ **Admin** | `admin@kairehealth.com` | `password123` | Hospital HQ, Staff Roster, User CRUD, Audit Logs, Kafka Live Stream |
-| 👨‍⚕️ **Doctor** | `dr.sarah@kairehealth.com` | `password123` | Patient EHR, AI Disease Predictor, Prescriptions, Appointments |
-| 👩‍⚕️ **Nurse** | `nurse.emily@kairehealth.com` | `password123` | Record Vitals (Streams to Kafka), Bed & Ward Management |
-| 🧑‍🤝‍🧑 **Patient** | `john.doe@gmail.com` | `password123` | Book Appointments, View AI Risk Results, EHR Prescriptions |
-
 > 💡 **Quick Test Flow**:
 > 1. Log in as **Nurse** (`nurse.emily@kairehealth.com` / `password123`).
 > 2. Go to **Record Vitals** and submit critical vitals (e.g., BP `165/105`, HR `124`).
@@ -287,15 +271,6 @@ docker-compose up --build -d
 
 ---
 
-## 🌐 Production Cloud Deployment Guide
-
-| Component | Cloud Platform | Build / Start Command | Environment Variables |
-| :--- | :--- | :--- | :--- |
-| **Frontend** | **Vercel** | Build: `npm run build`<br>Output: `dist` | `VITE_API_URL=https://your-api-url.onrender.com/api` |
-| **Backend & ML** | **Render** | Build: `pip install -r server/requirements.txt`<br>Start: `gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 server.run:app` | `FLASK_ENV=production`<br>`DATABASE_URL=postgresql://...`<br>`ENABLE_KAFKA=true` |
-| **Database** | **Supabase** | Managed PostgreSQL Instance | `DATABASE_URL=postgresql://postgres.xxx:yyy@...` |
-| **Kafka Cluster** | **Upstash Kafka** | Serverless SASL_SSL Kafka | `KAFKA_BOOTSTRAP_SERVERS=...`<br>`KAFKA_SECURITY_PROTOCOL=SASL_SSL`<br>`KAFKA_SASL_MECHANISM=SCRAM-SHA-250` |
-
 ---
 
 ## 🛡️ Security & HIPAA Compliance Features
@@ -307,7 +282,3 @@ docker-compose up --build -d
 - **Environment Isolation**: Zero hardcoded credentials; all secrets stored in `.env`.
 
 ---
-
-## 📄 License
-
-This project is open-source and licensed under the **[MIT License](LICENSE)**.
