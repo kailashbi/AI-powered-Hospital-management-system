@@ -1,0 +1,25 @@
+================================================================================
+KAIre Health - Type-2 Diabetes ML Evaluation Report
+Model: LogisticRegression (StandardScaler + Balanced Weights, max_iter=1000)
+Dataset: diabetes.csv (100000 records)
+================================================================================
+Accuracy:             0.8861 (88.61%)
+Precision:            0.4189 (41.89%)
+Recall (Sensitivity): 0.8776 (87.76%)
+F1-Score:             0.5671 (56.71%)
+ROC-AUC:              0.9615
+
+Confusion Matrix:
+TN: 16230 | FP: 2070
+FN: 208 | TP: 1492
+
+Classification Report:
+                  precision    recall  f1-score   support
+
+Non-Diabetic (0)       0.99      0.89      0.93     18300
+    Diabetic (1)       0.42      0.88      0.57      1700
+
+        accuracy                           0.89     20000
+       macro avg       0.70      0.88      0.75     20000
+    weighted avg       0.94      0.89      0.90     20000
+

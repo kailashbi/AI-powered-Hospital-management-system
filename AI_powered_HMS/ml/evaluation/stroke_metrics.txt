@@ -1,0 +1,25 @@
+================================================================================
+KAIre Health - Cerebrovascular Stroke Risk ML Evaluation Report
+Model: XGBoost Classifier Pipeline (StandardScaler + OneHotEncoder + XGBClassifier)
+Dataset: stroke.csv (50000 records)
+================================================================================
+Accuracy:             0.9514 (95.14%)
+Precision:            0.3333 (33.33%)
+Recall (Sensitivity): 0.0021 (0.21%)
+F1-Score:             0.0041 (0.41%)
+ROC-AUC:              0.5009
+
+Confusion Matrix:
+TN: 9513 | FP: 2
+FN: 484 | TP: 1
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+  No Stroke (0)       0.95      1.00      0.98      9515
+Stroke Risk (1)       0.33      0.00      0.00       485
+
+       accuracy                           0.95     10000
+      macro avg       0.64      0.50      0.49     10000
+   weighted avg       0.92      0.95      0.93     10000
+

@@ -1,0 +1,25 @@
+================================================================================
+KAIre Health - Heart Disease ML Evaluation Report
+Model: RandomForestClassifier (180 trees, max_depth=8, balanced)
+Dataset: heart.csv (5000000 records)
+================================================================================
+Accuracy:             0.8536 (85.36%)
+Precision:            0.8596 (85.96%)
+Recall (Sensitivity): 0.8246 (82.46%)
+F1-Score:             0.8418 (84.18%)
+ROC-AUC:              0.9134
+
+Confusion Matrix:
+TN: 464108 | FP: 63588
+FN: 82827 | TP: 389477
+
+Classification Report:
+                   precision    recall  f1-score   support
+
+   No Disease (0)       0.85      0.88      0.86    527696
+Heart Disease (1)       0.86      0.82      0.84    472304
+
+         accuracy                           0.85   1000000
+        macro avg       0.85      0.85      0.85   1000000
+     weighted avg       0.85      0.85      0.85   1000000
+

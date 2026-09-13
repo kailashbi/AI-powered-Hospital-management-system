@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.db
+*.sqlite3
+kaire_health.db
+
+# Node / React
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+dist-ssr/
+*.local
+
+# Environment & Secrets
+.env
+.env.production
+.DS_Store
+
+# Secondary README files (keep only main README.md)
+*README*.md
+!/README.md
+
+# Text files (ignore all .txt files except requirements and ML results/evaluation txt files)
+*.txt
+!requirements.txt
+!server/requirements.txt
+!ml_results.txt
+!ml/evaluation/*.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

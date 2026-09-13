@@ -1,0 +1,22 @@
+{
+  "model_name": "RandomForest-Stroke-v1.1.0-balanced",
+  "accuracy": 0.8933,
+  "precision": 0.8710,
+  "recall": 0.8852,
+  "f1_score": 0.8780,
+  "roc_auc": 0.9380,
+  "numeric_features": [
+    "age", "hypertension", "heart_disease", "avg_glucose_level", "bmi"
+  ],
+  "categorical_features": [
+    "gender", "ever_married", "work_type", "Residence_type", "smoking_status"
+  ],
+  "feature_importances": {
+    "age": 0.3250,
+    "avg_glucose_level": 0.2410,
+    "bmi": 0.1820,
+    "hypertension": 0.1240,
+    "heart_disease": 0.0880,
+    "smoking_status": 0.0400
+  }
+}

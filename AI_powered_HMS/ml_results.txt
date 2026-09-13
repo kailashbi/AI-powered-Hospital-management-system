@@ -1,0 +1,32 @@
+================================================================================
+🏥 KAIre Health - Machine Learning Models Performance & Evaluation Summary
+================================================================================
+Timestamp: 2026-09-14
+Pipeline Status: Validated & Serialized (.pkl artifacts ready)
+
+PERFORMANCE BENCHMARK SUMMARY TABLE:
+--------------------------------------------------------------------------------
+Disease Model                      | Accuracy | Precision | Recall   | F1-Score | ROC-AUC
+--------------------------------------------------------------------------------
+Heart Disease (Random Forest)      |   85.36% |    85.96% |   82.46% |   84.18% |  0.9134
+Type-2 Diabetes (Logistic Reg.)    |   88.61% |    41.89% |   87.76% |   56.71% |  0.9615
+Stroke Risk (XGBoost Pipeline)     |   95.14% |    33.33% |    0.21% |    0.41% |  0.5009
+--------------------------------------------------------------------------------
+
+SERIALIZED MODEL ARTIFACTS:
+- ml/models/heart_model.pkl        (RandomForestClassifier, 180 estimators)
+- ml/models/diabetes_model.pkl     (LogisticRegression, balanced weights)
+- ml/models/diabetes_scaler.pkl    (StandardScaler preprocessing)
+- ml/models/stroke_model.pkl       (XGBClassifier + OneHotEncoder pipeline)
+
+BENCHMARK DATASETS:
+- ml/datasets/heart.csv            (14 clinical parameters for cardiovascular risk)
+- ml/datasets/diabetes.csv         (Pima Indian diagnostic biomarkers)
+- ml/datasets/stroke.csv           (Cerebrovascular risk metrics)
+
+TEXT EVALUATION REPORTS IN ML/EVALUATION/:
+- ml/evaluation/heart_metrics.txt
+- ml/evaluation/diabetes_metrics.txt
+- ml/evaluation/stroke_metrics.txt
+- ml/evaluation/all_models_summary.txt
+================================================================================

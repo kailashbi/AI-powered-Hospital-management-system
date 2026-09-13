@@ -1,0 +1,26 @@
+{
+  "model_name": "RandomForest-Heart-v1.2.0",
+  "accuracy": 0.8800,
+  "precision": 0.8654,
+  "recall": 0.8920,
+  "f1_score": 0.8785,
+  "roc_auc": 0.9412,
+  "features": [
+    "age", "sex", "cp", "trestbps", "chol", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal"
+  ],
+  "feature_importances": {
+    "cp": 0.1650,
+    "thalach": 0.1420,
+    "oldpeak": 0.1380,
+    "ca": 0.1150,
+    "chol": 0.0980,
+    "trestbps": 0.0920,
+    "age": 0.0840,
+    "thal": 0.0620,
+    "exang": 0.0450,
+    "slope": 0.0310,
+    "sex": 0.0160,
+    "restecg": 0.0080,
+    "fbs": 0.0040
+  }
+}
