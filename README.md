@@ -201,8 +201,6 @@ KAIre Health incorporates 6 dedicated Apache Kafka topics:
 }
 ```
 
----
-
 > 💡 **Quick Test Flow**:
 > 1. Log in as **Nurse** (`nurse.emily@kairehealth.com` / `password123`).
 > 2. Go to **Record Vitals** and submit critical vitals (e.g., BP `165/105`, HR `124`).
