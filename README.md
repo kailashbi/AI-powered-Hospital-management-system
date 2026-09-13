@@ -271,12 +271,11 @@ docker-compose up --build -d
 
 ---
 
-## 🛡️ Security & HIPAA Compliance Features
+## 🛡️ Security 
 
 - **Authentication**: Stateless JSON Web Tokens (JWT) with configurable expiration (`JWT_SECRET_KEY`).
 - **Password Security**: Irreversible `bcrypt` hashing with salt rounds for all user accounts.
 - **Role-Based Access Control (RBAC)**: Strict role checking across endpoints (`Admin`, `Doctor`, `Nurse`, `Patient`).
-- **Audit Trails**: Immutable HIPAA log table tracking timestamp, user ID, IP address, action type, and JSON metadata.
 - **Environment Isolation**: Zero hardcoded credentials; all secrets stored in `.env`.
 
 ---
